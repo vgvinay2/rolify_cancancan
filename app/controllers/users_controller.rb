@@ -17,9 +17,11 @@ class UsersController < ApplicationController
 
   private
   def add_roles(resource)
-    #resource.roles = []
-    params[:user][:role_ids].each do |role|
-      resource.add_role Role.find(role).name
+    resource.roles = []
+    unless params[:user][:role_ids].blank?
+      params[:user][:role_ids].each do |role|
+        resource.add_role Role.find(role).name
+      end
     end
   end
 
