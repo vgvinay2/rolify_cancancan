@@ -1,8 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-  # Cancan add a before filter to access the methods
-
+  # Cancancan add a before filter to access the methods
   # gives problems with strong parameters if using cancan insted of cancancan.
   load_and_authorize_resource
 
