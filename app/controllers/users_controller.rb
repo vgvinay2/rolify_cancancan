@@ -6,8 +6,7 @@ class UsersController < ApplicationController
 
   def create
   	@user = User.new(user_params)
-    
-    #@user.add_role params['role_ids']
+    add_roles(@user)
 
   	if @user.save
   		redirect_to root_url, :notice => "sign_up!"
@@ -17,6 +16,13 @@ class UsersController < ApplicationController
   end
 
   private
+  def add_roles(resource)
+    #resource.roles = []
+    params[:user][:role_ids].each do |role|
+      resource.add_role Role.find(role).name
+    end
+  end
+
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
