@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   rolify
 
+  has_and_belongs_to_many :roles, :join_table => :users_roles
+
   # Rails 4 uses strong parameters, look at the controller.
   #attr_accessible :email, :password, :password_confirmation
   #has_many :user_roles

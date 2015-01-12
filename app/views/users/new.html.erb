@@ -23,6 +23,13 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </p>
+  <p>
+    <% @roles.each do |role| %>
+      <%= check_box_tag "user[role_ids][]", role.id %>
+      <%= role.name %>
+    <% end -%>
+  </p>
+
   <p class="button"><%= f.submit %></p>
 <% end %>
 
