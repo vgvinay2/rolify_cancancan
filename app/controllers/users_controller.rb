@@ -1,7 +1,19 @@
 class UsersController < ApplicationController
+
+  def index
+    @users = User.all
+  end
+
   def new
     @roles = Role.all
   	@user = User.new
+  end
+
+  def show
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def create
@@ -14,6 +26,14 @@ class UsersController < ApplicationController
   		render "new"
   	end
   end
+
+  def update
+      @user = User.find(params[:id])
+      add_roles(@user)
+      redirect_to users_path, notice: 'User was successfully updated.' 
+  end
+
+
 
   private
   def add_roles(resource)

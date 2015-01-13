@@ -1,0 +1,15 @@
+<p>Editing User's Roles</p>
+
+<%= form_for(@user) do |f| %>
+
+  <div class="field">
+	  <p>
+	    <%= @user.roles.each do |role| %>
+	      <%= check_box_tag "user[role_ids][]", role.id , @user.role_ids.include?(role.id), id: dom_id(role)%>
+	      <%= role.name %>
+	    <% end -%>
+	  </p>
+  </div>
+
+  <%= f.submit %>
+<% end %>
