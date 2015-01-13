@@ -1,6 +1,10 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
+  # Cancancan add a before filter to access the methods
+  # gives problems with strong parameters if using cancan insted of cancancan.
+  load_and_authorize_resource
+
   # GET /roles
   # GET /roles.json
   def index

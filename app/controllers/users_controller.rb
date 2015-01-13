@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  # Cancancan add a before filter to access the methods
+  # gives problems with strong parameters if using cancan insted of cancancan.
+  load_and_authorize_resource
+
+  
   def index
     @users = User.all
   end
