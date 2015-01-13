@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <%= favicon_link_tag 'authentication.jpg' %>
+
+
   <title>Auth</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -19,6 +23,10 @@
     <%= link_to "log in", log_in_path %>
   <% end %><th>
 </div>
+
+<!--The athentication logo-->
+<%= image_tag("authentication.jpg", :alt => "authentication.jpg", :type => :upload, 
+              :width => 30, :height => 30, :crop => :fill, :gravity => :east) %>
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
