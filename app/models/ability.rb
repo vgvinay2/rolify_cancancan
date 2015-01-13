@@ -13,6 +13,7 @@ class Ability
     end
     
     can :read, Article
+    can :create, User
     
 
 
